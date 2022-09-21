@@ -1,13 +1,279 @@
+/* Box sizing rules */
 *,
 *::before,
 *::after {
   box-sizing: border-box;
 }
 
+/* Remove default margin */
+body,
+h1,
+h2,
+h3,
+h4,
+p,
+figure,
+blockquote,
+dl,
+dd {
+  margin: 0;
+}
+
+/* Remove list styles on ul, ol elements with a list role, which suggests default styling will be removed */
+ul[role='list'],
+ol[role='list'] {
+  list-style: none;
+}
+
+/* Set core root defaults */
+html:focus-within {
+  scroll-behavior: smooth;
+}
+
+/* Set core body defaults */
+body {
+  min-height: 100vh;
+  text-rendering: optimizeSpeed;
+  line-height: 1.5;
+}
+
+/* A elements that don't have a class get default styles */
+a:not([class]) {
+  text-decoration-skip-ink: auto;
+}
+
+/* Make images easier to work with */
+img,
+picture {
+  max-width: 100%;
+  display: block;
+}
+
+/* Inherit fonts for inputs and buttons */
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+/* Remove all animations, transitions and smooth scroll for people that prefer not to see them */
+@media (prefers-reduced-motion: reduce) {
+  html:focus-within {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+:root {
+  --white: hsl(0, 0%, 100%);
+  --cyan: hsl(179, 62%, 43%);
+  --light-cyan: hsl(179, 62%, 47%);
+  --bright-yellow: hsl(71, 73%, 54%);
+  --light-gray: hsl(204, 43%, 93%);
+  --grayish-blue: hsl(218, 22%, 67%);
+
+  --paddingX: 1.8rem;
+  --paddingY: 1.5rem;
+}
+
+html {
+  font-size: 100%;
+  box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Karla', sans-serif;
+  line-height: 1.3;
+  background-color: var(--light-gray);
+  color: var(--grayish-blue);
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+a {
+  text-decoration: none;
+}
+
+h1,
+h2,
+h3 {
+  margin-top: 0;
+  line-height: 1.15;
+  font-weight: bold;
+}
+
+h2 {
+  font-size: 1.25rem;
+  margin-bottom: 1.25rem;
+}
+
+h3 {
+  font-size: 1.1rem;
+  margin-bottom: 1.25rem;
+}
+
+p {
+  margin-top: 0;
+}
+
+.price {
+  max-width: 40rem;
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr;
+  margin: auto;
+  border-radius: 0.5rem;
+  overflow: hidden;
+}
+
+.price > * {
+  padding: var(--paddingX) var(--paddingY);
+}
+
+@media screen and (min-width: 48em) {
+  .price {
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, auto);
+  }
+
+  .price > * {
+    padding: 2rem;
+  }
+}
+
+.community {
+  background-color: var(--white);
+}
+
+@media screen and (min-width: 48em) {
+  .community {
+    grid-column: 1/3;
+  }
+}
+
+.community h2 {
+  font-size: 1.25rem;
+  color: var(--cyan);
+}
+
+.community .subtitle {
+  font-size: 1rem;
+  color: var(--bright-yellow);
+  font-weight: bold;
+  margin-bottom: 1rem;
+}
+
+.community p {
+  font-size: 0.85rem;
+  line-height: 1.75;
+  margin-bottom: 0;
+}
+
+.subscription,
+.why-us {
+  color: var(--light-gray);
+}
+
+.subscription {
+  background-color: var(--cyan);
+}
+
+.subscription__price {
+  color: hsl(204, 43%, 93%, 0.75);
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 0.25rem;
+}
+
+.subscription__price span {
+  color: var(--light-gray);
+  font-weight: bold;
+  font-size: 2rem;
+}
+
+.subscription p {
+  font-size: 0.9rem;
+  margin-bottom: 1.5rem;
+}
+
+.btn {
+  display: block;
+  text-align: center;
+  font-weight: bold;
+  font-size: 1rem;
+  white-space: nowrap;
+  color: var(--white);
+  background-color: var(--bright-yellow);
+  padding: 1em 3em;
+  border-radius: 0.25rem;
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+  transition: background-color 0.2s ease-in-out;
+}
+
+.btn:visited {
+  text-decoration: none;
+}
+
+.btn:hover,
+.btn:focus {
+  background-color: hsl(71, 73%, 48%);
+}
+
+.why-us {
+  background-color: var(--light-cyan);
+}
+
+.list {
+  margin-top: 0;
+  padding-inline: 0;
+  line-height: 1.5;
+}
+
+.list__item {
+  list-style-type: none;
+  font-size: 0.85rem;
+}
+
+@media screen and (min-width: 48em) {
+  .subscription,
+  .why-us {
+    padding-bottom: 1rem;
+  }
+}
+
 .attribution {
+  margin: 0.5rem auto;
   font-size: 11px;
   text-align: center;
 }
+
 .attribution a {
   color: hsl(228, 45%, 44%);
+  text-decoration: underline;
+}
+
+@media screen and (min-width: 48em) {
+  .attribution {
+    margin: 0;
+  }
 }
